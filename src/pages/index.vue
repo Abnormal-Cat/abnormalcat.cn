@@ -75,7 +75,7 @@ const supportPageLink = useLink({
 				支持 & 赞助
 			</n-button>
 
-			<n-button href="https://m.tb.cn/h.5BtXcnX?tk=hJT6WLxt6xV" tag="a">
+			<n-button href="https://m.tb.cn/h.TIwLCkP?tk=tzeueR7pjH1" tag="a">
 				<template #icon>
 					<Icons-Fish/>
 				</template>
@@ -88,27 +88,28 @@ const supportPageLink = useLink({
 
 		<n-grid :x-gap="10" :y-gap="10" cols="1 s:3" responsive="screen">
 			<n-grid-item>
-				<iframe class="border-none w-full h-[25vh]" src="https://player.bilibili.com/player.html?aid=1400265936"/>
+				<iframe class="border-none w-full h-[25vh]"
+						src="https://player.bilibili.com/player.html?aid=1400265936&autoplay=0"/>
 			</n-grid-item>
 
 			<n-grid-item>
-				<iframe class="border-none w-full h-[25vh]" src="https://player.bilibili.com/player.html?aid=687077176"/>
+				<iframe class="border-none w-full h-[25vh]"
+						src="https://player.bilibili.com/player.html?aid=114008044604317&autoplay=0"/>
 			</n-grid-item>
 
 			<n-grid-item>
-				<iframe class="border-none w-full h-[25vh]" src="https://player.bilibili.com/player.html?aid=389441034"/>
-			</n-grid-item>
-		</n-grid>
-
-		<n-divider>模型玩法介绍</n-divider>
-
-		<n-grid :x-gap="10" :y-gap="10" cols="1 s:2" responsive="screen">
-			<n-grid-item>
-				<iframe class="border-none w-full h-[25vh]" src="https://player.bilibili.com/player.html?aid=1052071398"/>
+				<iframe class="border-none w-full h-[25vh]"
+						src="https://player.bilibili.com/player.html?aid=114001820257300&autoplay=0"/>
 			</n-grid-item>
 
-			<n-grid-item>
-				<iframe class="border-none w-full h-[25vh]" src="https://player.bilibili.com/player.html?aid=1302745939"/>
+			<n-grid-item :span="3">
+				<n-flex :wrap="false" :size="10" justify="space-evenly">
+					<iframe class="border-none w-full h-[25vh]"
+							src="https://player.bilibili.com/player.html?aid=687077176&autoplay=0"/>
+
+					<iframe class="border-none w-full h-[25vh]"
+							src="https://player.bilibili.com/player.html?aid=389441034&autoplay=0"/>
+				</n-flex>
 			</n-grid-item>
 		</n-grid>
 	</n-flex>
