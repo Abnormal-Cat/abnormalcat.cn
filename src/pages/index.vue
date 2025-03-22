@@ -4,6 +4,11 @@ import '~/scripts/sakura'
 import { HeartOutlined, MailOutlined, QqOutlined, UsergroupAddOutlined } from '@vicons/antd'
 import avatar from '~/assets/avatar.png'
 
+import doc_1 from '~/assets/download/1.docx?url'
+import doc_2 from '~/assets/download/2.docx?url'
+import doc_3 from '~/assets/download/3.docx?url'
+import doc_4 from '~/assets/download/4.docx?url'
+
 const supportPageLink = useLink({
 	to: {
 		name: '支持 & 赞助'
@@ -103,7 +108,7 @@ const supportPageLink = useLink({
 			</n-grid-item>
 
 			<n-grid-item :span="3">
-				<n-flex :wrap="false" :size="10" justify="space-evenly">
+				<n-flex :size="10" :wrap="false" justify="space-evenly">
 					<iframe class="border-none w-full h-[25vh]"
 							src="https://player.bilibili.com/player.html?aid=687077176&autoplay=0"/>
 
@@ -112,5 +117,32 @@ const supportPageLink = useLink({
 				</n-flex>
 			</n-grid-item>
 		</n-grid>
+
+		<n-divider>文档</n-divider>
+
+		<n-list bordered>
+			<n-list-item>
+				<n-button :href="doc_1" download="艾斯杀手娘玩法介绍.docx" tag="a" text type="primary">
+					艾斯杀手娘玩法介绍.docx
+				</n-button>
+			</n-list-item>
+
+			<n-list-item>
+				<n-button :href="doc_2" download="新杰顿娘玩法介绍.docx" tag="a" text type="primary">
+					新杰顿娘玩法介绍.docx
+				</n-button>
+			</n-list-item>
+
+			<n-list-item>
+				<n-button :href="doc_3" download="新佐菲玩法介绍.docx" tag="a" text type="primary">新佐菲玩法介绍.docx
+				</n-button>
+			</n-list-item>
+
+			<n-list-item>
+				<n-button :href="doc_4" download="哥莫拉模型玩法介绍.docx" tag="a" text type="primary">
+					哥莫拉模型玩法介绍.docx
+				</n-button>
+			</n-list-item>
+		</n-list>
 	</n-flex>
 </template>
