@@ -22,13 +22,17 @@ const supportPageLink = useLink({
 			<n-image :img-props="{ class: 'w-50' }" :src="avatar"/>
 
 			<n-flex class="<sm:text-center" vertical>
-				<n-text class="text-5xl fw-bold">Abnormal Cat</n-text>
+				<n-flex vertical :size="0" class="leading-none">
+					<n-text class="text-5xl fw-extrabold">Abnormal Cat</n-text>
+					<n-text class="text-2xl text-pink-200 fw-bold">猫老师</n-text>
+				</n-flex>
+
 				<n-text :depth="3" class="text-xl">一位业余的建模师和小小的 Unity / VRChat 创作者</n-text>
 			</n-flex>
 		</n-flex>
 
 		<n-flex justify="center">
-			<n-button href="https://wpa.qq.com/msgrd?uin=3318415065" tag="a">
+			<n-button href="https://qm.qq.com/q/BRkMmYgP5Y" tag="a">
 				<template #icon>
 					<n-icon :component="QqOutlined"/>
 				</template>
@@ -91,32 +95,18 @@ const supportPageLink = useLink({
 
 		<n-divider>视频 & 作品</n-divider>
 
-		<n-grid :x-gap="10" :y-gap="10" cols="1 s:3" responsive="screen">
-			<n-grid-item>
-				<iframe class="border-none w-full h-[25vh]"
-						src="https://player.bilibili.com/player.html?aid=1400265936&autoplay=0"/>
-			</n-grid-item>
+		<n-flex vertical>
+			<iframe class="border-none w-full h-[25vh]"
+			        src="https://player.bilibili.com/player.html?aid=116273455302875&autoplay=0"/>
 
-			<n-grid-item>
-				<iframe class="border-none w-full h-[25vh]"
-						src="https://player.bilibili.com/player.html?aid=114008044604317&autoplay=0"/>
-			</n-grid-item>
+			<n-flex justify="space-evenly">
+				<iframe class="border-none flex-1 h-[25vh]"
+				        src="https://player.bilibili.com/player.html?aid=114208834323611&autoplay=0"/>
 
-			<n-grid-item>
-				<iframe class="border-none w-full h-[25vh]"
-						src="https://player.bilibili.com/player.html?aid=114001820257300&autoplay=0"/>
-			</n-grid-item>
-
-			<n-grid-item :span="3">
-				<n-flex :size="10" :wrap="false" justify="space-evenly">
-					<iframe class="border-none w-full h-[25vh]"
-							src="https://player.bilibili.com/player.html?aid=687077176&autoplay=0"/>
-
-					<iframe class="border-none w-full h-[25vh]"
-							src="https://player.bilibili.com/player.html?aid=389441034&autoplay=0"/>
-				</n-flex>
-			</n-grid-item>
-		</n-grid>
+				<iframe class="border-none flex-1 h-[25vh]"
+				        src="https://player.bilibili.com/player.html?aid=115879626934213&autoplay=0"/>
+			</n-flex>
+		</n-flex>
 
 		<n-divider>文档</n-divider>
 
