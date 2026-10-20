@@ -3,11 +3,13 @@ import '~/scripts/sakura'
 
 import { HeartOutlined, MailOutlined, QqOutlined, UsergroupAddOutlined } from '@vicons/antd'
 import avatar from '~/assets/avatar.png'
+import { isMobile } from '~/shared/responsive'
 
-import doc_1 from '~/assets/download/1.docx?url'
-import doc_2 from '~/assets/download/2.docx?url'
-import doc_3 from '~/assets/download/3.docx?url'
-import doc_4 from '~/assets/download/4.docx?url'
+const downloadableAssets = import.meta.glob<string>('~/assets/download/*', {
+	eager: true,
+	import: 'default',
+	query: '?url'
+})
 
 const supportPageLink = useLink({
 	to: {
@@ -22,7 +24,7 @@ const supportPageLink = useLink({
 			<n-image :img-props="{ class: 'w-50' }" :src="avatar"/>
 
 			<n-flex class="<sm:text-center" vertical>
-				<n-flex vertical :size="0" class="leading-none">
+				<n-flex :size="0" class="leading-none" vertical>
 					<n-text class="text-5xl fw-extrabold">Abnormal Cat</n-text>
 					<n-text class="text-2xl text-pink-200 fw-bold">猫老师</n-text>
 				</n-flex>
@@ -31,8 +33,8 @@ const supportPageLink = useLink({
 			</n-flex>
 		</n-flex>
 
-		<n-flex justify="center">
-			<n-button href="https://qm.qq.com/q/BRkMmYgP5Y" tag="a">
+		<n-flex :align="isMobile ? 'center' : undefined" :vertical="isMobile" justify="center">
+			<n-button :block="isMobile" href="https://qm.qq.com/q/BRkMmYgP5Y" tag="a">
 				<template #icon>
 					<n-icon :component="QqOutlined"/>
 				</template>
@@ -40,7 +42,7 @@ const supportPageLink = useLink({
 				QQ
 			</n-button>
 
-			<n-button href="mailto:3318415065@qq.com" tag="a">
+			<n-button :block="isMobile" href="mailto:3318415065@qq.com" tag="a">
 				<template #icon>
 					<n-icon :component="MailOutlined"/>
 				</template>
@@ -48,7 +50,8 @@ const supportPageLink = useLink({
 				邮箱
 			</n-button>
 
-			<n-button href="https://vrchat.com/home/user/usr_245af4df-3061-4aef-86bc-0cd27668b8eb" tag="a">
+			<n-button :block="isMobile" href="https://vrchat.com/home/user/usr_245af4df-3061-4aef-86bc-0cd27668b8eb"
+					  tag="a">
 				<template #icon>
 					<Icons-Vr/>
 				</template>
@@ -57,6 +60,7 @@ const supportPageLink = useLink({
 			</n-button>
 
 			<n-button
+				:block="isMobile"
 				href="https://qm.qq.com/cgi-bin/qm/qr?k=7qfcxHxFgp9ToI19wepmGTGIzSYwVr68&authKey=PeN0iwzyLwMjQ0idbOCcSD4EQkDbxxAYc3vOCmawQr53sVTgqd4JDsd2lcdaRj0K"
 				tag="a">
 				<template #icon>
@@ -67,8 +71,12 @@ const supportPageLink = useLink({
 			</n-button>
 		</n-flex>
 
-		<n-flex justify="center">
-			<n-button href="https://space.bilibili.com/454104032" tag="a">
+		<template v-if="isMobile">
+			<n-divider class="!my-2"/>
+		</template>
+
+		<n-flex :align="isMobile ? 'center' : undefined" :vertical="isMobile" justify="center">
+			<n-button :block="isMobile" href="https://space.bilibili.com/454104032" tag="a">
 				<template #icon>
 					<Icons-BiliBili/>
 				</template>
@@ -76,7 +84,8 @@ const supportPageLink = useLink({
 				哔哩哔哩
 			</n-button>
 
-			<n-button :href="supportPageLink.href.value" tag="a" @click.prevent="supportPageLink.navigate()">
+			<n-button :block="isMobile" :href="supportPageLink.href.value" tag="a"
+					  @click.prevent="supportPageLink.navigate()">
 				<template #icon>
 					<n-icon :component="HeartOutlined"/>
 				</template>
@@ -84,7 +93,7 @@ const supportPageLink = useLink({
 				支持 & 赞助
 			</n-button>
 
-			<n-button href="https://m.tb.cn/h.TIwLCkP?tk=tzeueR7pjH1" tag="a">
+			<n-button :block="isMobile" href="https://m.tb.cn/h.TIwLCkP?tk=tzeueR7pjH1" tag="a">
 				<template #icon>
 					<Icons-Fish/>
 				</template>
@@ -96,41 +105,34 @@ const supportPageLink = useLink({
 		<n-divider>视频 & 作品</n-divider>
 
 		<n-flex vertical>
-			<iframe class="border-none w-full h-[25vh]"
-			        src="https://player.bilibili.com/player.html?aid=116273455302875&autoplay=0"/>
+			<iframe class="border-none w-full aspect-video"
+					src="https://player.bilibili.com/player.html?aid=116273455302875&autoplay=0"/>
 
-			<n-flex justify="space-evenly">
-				<iframe class="border-none flex-1 h-[25vh]"
-				        src="https://player.bilibili.com/player.html?aid=114208834323611&autoplay=0"/>
+			<n-flex :vertical="isMobile" justify="space-evenly">
+				<n-element class="flex-1">
+					<iframe class="border-none aspect-video"
+							src="https://player.bilibili.com/player.html?aid=114208834323611&autoplay=0"/>
+				</n-element>
 
-				<iframe class="border-none flex-1 h-[25vh]"
-				        src="https://player.bilibili.com/player.html?aid=115879626934213&autoplay=0"/>
+				<n-element class="flex-1">
+					<iframe class="border-none aspect-video"
+							src="https://player.bilibili.com/player.html?aid=115879626934213&autoplay=0"/>
+				</n-element>
 			</n-flex>
 		</n-flex>
 
-		<n-divider>文档</n-divider>
+		<n-divider class="!my-4">文件</n-divider>
 
 		<n-list bordered>
-			<n-list-item>
-				<n-button :href="doc_1" download="艾斯杀手娘玩法介绍.docx" tag="a" text type="primary">
-					艾斯杀手娘玩法介绍.docx
-				</n-button>
-			</n-list-item>
-
-			<n-list-item>
-				<n-button :href="doc_2" download="新杰顿娘玩法介绍.docx" tag="a" text type="primary">
-					新杰顿娘玩法介绍.docx
-				</n-button>
-			</n-list-item>
-
-			<n-list-item>
-				<n-button :href="doc_3" download="新佐菲玩法介绍.docx" tag="a" text type="primary">新佐菲玩法介绍.docx
-				</n-button>
-			</n-list-item>
-
-			<n-list-item>
-				<n-button :href="doc_4" download="哥莫拉模型玩法介绍.docx" tag="a" text type="primary">
-					哥莫拉模型玩法介绍.docx
+			<n-list-item v-for="downloadableAsset in downloadableAssets">
+				<n-button
+					:download="decodeURIComponent(downloadableAsset.split('/').at(-1) ?? '?')"
+					:href="downloadableAsset"
+					tag="a"
+					text
+					type="primary"
+				>
+					{{ decodeURIComponent(downloadableAsset.split('/').at(-1) ?? '?') }}
 				</n-button>
 			</n-list-item>
 		</n-list>

@@ -32,10 +32,12 @@ useHead({
 						<n-notification-provider>
 							<n-layout position="absolute">
 								<n-layout-content class="container mx-auto">
-									<NuxtPage class="<sm:(px-2) py-10"/>
+									<n-element class="<sm:(px-2) pt-10 pb-20">
+										<NuxtPage/>
+									</n-element>
 								</n-layout-content>
 
-								<n-layout-footer position="absolute">
+								<n-layout-footer class="p-2" position="absolute">
 									<n-flex :size='0' align="center" justify='center'>
 										<n-text>&copy; 2024 - {{ new Date().getFullYear() }}</n-text>
 										<n-divider vertical/>
@@ -53,6 +55,10 @@ useHead({
 </template>
 
 <style>
+* {
+	@apply box-border;
+}
+
 .page-enter-active,
 .page-leave-active {
 	@apply transition-(all duration-300) ease-in-out;
