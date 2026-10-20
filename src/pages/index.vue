@@ -124,15 +124,15 @@ const supportPageLink = useLink({
 		<n-divider class="!my-4">文件</n-divider>
 
 		<n-list bordered>
-			<n-list-item v-for="downloadableAsset in downloadableAssets">
+			<n-list-item v-for="(downloadableAsset,downloadableAssetPath) in downloadableAssets">
 				<n-button
-					:download="decodeURIComponent(downloadableAsset.split('/').at(-1) ?? '?')"
+					:download="decodeURIComponent(downloadableAssetPath.split('/').at(-1) ?? '?')"
 					:href="downloadableAsset"
 					tag="a"
 					text
 					type="primary"
 				>
-					{{ decodeURIComponent(downloadableAsset.split('/').at(-1) ?? '?') }}
+					{{ decodeURIComponent(downloadableAssetPath.split('/').at(-1) ?? '?') }}
 				</n-button>
 			</n-list-item>
 		</n-list>
